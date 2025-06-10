@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" xml:lang="en">
+  <info>
+    <title>Custom Vancouver AbbrJrnl + DOI/EPUB</title>
+    <id>http://www.zotero.org/styles/custom-vancouver-abbrdoi</id>
+    <link href="http://www.zotero.org/styles/vancouver" rel="template"/>
+    <author><name>Your Name</name></author>
+    <category citation-format="numeric"/>
+    <category field="medicine"/>
+    <updated>2025-06-10T00:00:00+00:00</updated>
+    <summary>Vancouver style with abbreviated journal names; append DOI/EPUB if no page range.</summary>
+  </info>
+
+  <citation collapse="citation-number">
+    <layout prefix="(" suffix=")" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">
+    <layout suffix=".">
+      <text variable="citation-number" prefix="(" suffix=") "/>
+      <names variable="author">
+        <name initialize-with="." name-as-sort-order="first" delimiter=", " />
+      </names>
+      <text variable="title" prefix=". " suffix="."/>
+      <group prefix=" " suffix=".">
+        <text variable="container-title" font-style="italic" form="short"/>
+        <text variable="issued" prefix=" " form="year"/>
+        <group prefix="; ">
+          <text variable="volume"/>
+          <group prefix="(" suffix=")">
+            <text variable="issue"/>
+          </group>
+          <choose>
+            <if variable="page">
+              <text variable="page" prefix=":"/>
+            </if>
+            <else>
+              <text variable="DOI" prefix=" doi:"/>
+              <text term="epub" prefix=" epub:"/>
+            </else>
+          </choose>
+        </group>
+      </group>
+    </layout>
+  </bibliography>
+</style>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>Custom Vancouver AbbrJrnl + DOI fallback</title>
+    <id>http://www.zotero.org/styles/custom-vancouver-abbrdoi</id>
+    <link href="http://www.zotero.org/styles/vancouver" rel="template"/>
+    <author>
+      <name>Custom CSL</name>
+    </author>
+    <category citation-format="numeric"/>
+    <category field="medicine"/>
+    <updated>2025-06-10T00:00:00+00:00</updated>
+    <summary>Vancouver-style with abbreviated journal names and fallback to DOI if no page range.</summary>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name name-as-sort-order="first" initialize-with="." delimiter=", "/>
+      <et-al font-style="italic"/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" suffix="."/>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="journal">
+    <group delimiter=" ">
+      <text variable="container-title" form="short" font-style="italic"/>
+      <text macro="issued"/>
+      <group delimiter=";">
+        <text variable="volume"/>
+        <group prefix="(" suffix=")">
+          <text variable="issue"/>
+        </group>
+        <choose>
+          <if variable="page">
+            <text variable="page" prefix=":"/>
+          </if>
+          <else>
+            <group delimiter=" ">
+              <text variable="DOI" prefix="doi:"/>
+              <text variable="page" prefix="epub:"/>
+            </group>
+          </else>
+        </choose>
+      </group>
+    </group>
+    <text suffix="."/>
+  </macro>
+
+  <citation collapse="citation-number">
+    <layout prefix="(" suffix=")" delimiter=", ">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">
+    <layout>
+      <text variable="citation-number" prefix="(" suffix=") "/>
+      <text macro="author" suffix=". "/>
+      <text macro="title" suffix=" "/>
+      <text macro="journal"/>
+    </layout>
+  </bibliography>
+</style>

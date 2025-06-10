@@ -3,7 +3,7 @@
   <info>
     <title>Custom Vancouver AbbrJrnl + DOI fallback</title>
     <id>http://www.zotero.org/styles/custom-vancouver-abbrdoi</id>
-    <link href="http://www.zotero.org/styles/vancouver" rel="independent"/>
+    <link href="http://www.zotero.org/styles/vancouver" rel="self"/>
     <author>
       <name>Custom CSL</name>
     </author>
